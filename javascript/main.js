@@ -9,9 +9,11 @@ function getDrink() {
   .then(data => {
     console.log(data);
     // console.log(data.drinks[1]);
+    let instr = data.drinks[0].strInstructions;
+    //if 
     document.querySelector('h2').innerText = data.drinks[0].strDrink;
     document.querySelector('.first').src = data.drinks[0].strDrinkThumb;
-    document.querySelector('.instructions').innerText = data.drinks[0].strInstructions;
+    document.querySelector('.instructions').innerText = instr.split('.').join('\n');
   })
   .catch(err => {
     console.log(`error ${err}`);

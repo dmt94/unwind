@@ -38,23 +38,22 @@ h1 {
 }
 
 h2 {
-  font-size: 50px;
+  font-size: 40px;
   letter-spacing: 5px;
   text-transform: uppercase;
   color:rgb(237, 255, 242);
   font-family: 'vicky-christina';
   text-align: center;
-  margin: 20px;
+  padding-bottom: 40px;
 }
 
 .nav-item > a {
-  margin: 10px;
+  /* margin: 10px; */
   text-align: center;
 }
 
 .navbar-nav > .nav-item > .active {
   border-top: 5px solid rgb(247, 255, 17);
-  background-color:rgb(247, 255, 17);
 }
  
 .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show >.nav-links {
@@ -76,17 +75,22 @@ h2 {
   max-width: 30rem;
   padding: 20px;
   border: 1px solid rgb(255, 248, 248);
+  background-color: rgba(233, 233, 233, 0.025);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-image: linear-gradient(45deg, rgb(213, 249, 194), rgb(255, 236, 111)) 1;
 }
 
 .description {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px;
+  margin: 50px;
+}
+
+.drink-box {
 }
 /* nav-bar */
 .nav-link, #navbarDropdown, .navbar-dark .navbar-nav .nav-link {
@@ -103,7 +107,9 @@ h2 {
 } */
 
 .navbar {
-  width: 100%;
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
 }
 
 .nav-link:hover, #navbarDropdown:hover, .navbar-dark .navbar-nav .nav-link:hover, .nav-link:hover .collapse {
@@ -113,7 +119,7 @@ h2 {
 
 .nav-link:focus {
   border-top: 5px solid rgb(247, 255, 17);
-  background-color:rgb(247, 255, 17);
+  /* background-color:rgb(247, 255, 17); */
 }
 
 /* .nav-link:focus, #navbarDropdown:focus, .navbar-dark .navbar-nav .nav-link:focus, .nav-link:focus .collapse {
@@ -131,8 +137,12 @@ input[placeholder] {
   font-size: 9px;
 }
 
+.home, .all-drinks, .random, .list {
+  margin: 10px;
+}
+
 .form-control {
-  width: 330px;
+  width: 200px;
 }
 
 /*Carousel*/
@@ -144,13 +154,11 @@ input[placeholder] {
   margin: 20px;
 }
 .carousel {
-  width: 500px;
+  width: 20rem;
   margin: 20px;
 }
 
 img {
-  width: 100px;
-  height: 350px;
   opacity: 0.5;
   transition: opacity 2s, transform 5s;
 }
@@ -206,4 +214,17 @@ img:hover {
 
 .dropdown-menu {
   background-color:rgb(240, 255, 102);
+}
+
+/* alphabet */
+.alph {
+  text-decoration: none;
+  color: white;
+  margin-top: 25px;
+  padding: 10px;
+}
+
+.alph-container {
+  display: flex;
+  justify-content: space-evenly;
 }
