@@ -1,0 +1,209 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.main-head {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: rgb(236, 255, 221);
+  color: rgb(41, 41, 41);
+  font-family: 'vicky-christina';
+  transition: all 2s;
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.903);
+}
+
+h1 {
+  font-size: 30px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.main-head > span {
+  transition: all 2s;
+}
+
+.main-head:hover {
+  transform: scale(1.2);
+  background: rgb(210, 253, 93);
+  color: rgb(23, 23, 23);
+}
+
+h2 {
+  font-size: 50px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color:rgb(237, 255, 242);
+  font-family: 'vicky-christina';
+  text-align: center;
+  margin: 20px;
+}
+
+.nav-item > a {
+  margin: 10px;
+  text-align: center;
+}
+
+.navbar-nav > .nav-item > .active {
+  border-top: 5px solid rgb(247, 255, 17);
+  background-color:rgb(247, 255, 17);
+}
+ 
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show >.nav-links {
+  color: black;
+}
+
+.instructions {
+  font-family: 'Inter';
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-align: center;
+  line-height: 2.8;
+  color: white;
+  margin: 0;
+}
+
+.instr-box {
+  max-width: 30rem;
+  padding: 20px;
+  border: 1px solid rgb(255, 248, 248);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+/* nav-bar */
+.nav-link, #navbarDropdown, .navbar-dark .navbar-nav .nav-link {
+  color:rgb(255, 255, 255);
+  border-top: 5px solid rgba(255, 249, 133, 0);
+  transition: all 1.2s;
+  padding: 5px;
+}
+
+/* @media only screen and (min-width: 600px) {
+  .container-fluid {
+    height: 50px;
+  }
+} */
+
+.navbar {
+  width: 100%;
+}
+
+.nav-link:hover, #navbarDropdown:hover, .navbar-dark .navbar-nav .nav-link:hover, .nav-link:hover .collapse {
+  color:rgb(91, 91, 91);
+  border-top: 5px solid rgb(247, 255, 27);
+}
+
+.nav-link:focus {
+  border-top: 5px solid rgb(247, 255, 17);
+  background-color:rgb(247, 255, 17);
+}
+
+/* .nav-link:focus, #navbarDropdown:focus, .navbar-dark .navbar-nav .nav-link:focus, .nav-link:focus .collapse {
+  color: rgb(48, 48, 48);
+} */
+
+a, input[placeholder], span {
+  font-family: 'Inter';
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+input[placeholder] {
+  font-size: 9px;
+}
+
+.form-control {
+  width: 330px;
+}
+
+/*Carousel*/
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+}
+.carousel {
+  width: 500px;
+  margin: 20px;
+}
+
+img {
+  width: 100px;
+  height: 350px;
+  opacity: 0.5;
+  transition: opacity 2s, transform 5s;
+}
+
+img:hover {
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+/* navbar */
+
+.navbar {
+  outline:rgb(198, 202, 196) 1px solid;
+  /* height: 60px; */
+}
+
+.btn {
+  color: rgb(241, 255, 113);
+  margin-left: 15px;
+  border: none;
+  border-radius: 0px;
+  border: none;
+}
+
+.btn:hover {
+  color: rgb(255, 237, 237);
+  border: none;
+}
+
+.btn:focus {
+  color: rgb(255, 255, 255);
+  border: none;
+  outline: none;
+  background-color: none;
+}
+
+.d-flex {
+  margin: 15px;
+}
+
+.form-control {
+  border-radius: 0px;
+  border: none;
+}
+
+
+/* drop down navbar*/
+
+.dropdown-item:hover {
+  background-color: rgb(39, 39, 39);
+  color:rgb(240, 255, 102);
+}
+
+.dropdown-menu {
+  background-color:rgb(240, 255, 102);
+}
