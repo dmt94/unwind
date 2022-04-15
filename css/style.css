@@ -267,6 +267,8 @@ hr {
   color: rgb(252, 255, 172);
   padding: 20px;
   font-size: 15px;
+  text-align: center;
+  list-style: none;
 }
 
 #id-ingredient-list > li::marker {
