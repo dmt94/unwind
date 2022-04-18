@@ -1,0 +1,120 @@
+h1 {
+  font-size: 30px;
+}
+
+.all-drinks-choice {
+  max-width: 100%;
+  height: 100px;
+  background-color: rgba(86, 86, 86, 0.137);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Buttons*/
+
+.alcoholic-btn, .nonalcoholic-btn {
+  border: 1px solid rgb(255, 255, 208);
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+}
+
+.alcoholic-btn:hover {
+  border: 1px solid rgb(255, 255, 200);
+}
+
+.nonalcoholic-btn:hover {
+  border: 1px solid rgb(255, 255, 187);
+}
+
+.btn {
+  /* margin: 20px; */
+  margin: 10px;
+  font-size: 15px;
+}
+
+/* filter */
+
+
+.filter {
+  color: white;
+}
+
+/* have JS change class upon click? */
+.chosen-filter {
+  background-color: rgb(255, 248, 48);
+  color: rgb(37, 37, 37);
+}
+
+.btn:focus {
+  color: rgb(255, 255, 255);
+  background-color: rgba(240, 248, 255, 0);
+}
+
+@media only screen and (max-width: 600px) {
+  .all-drinks-choice {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+  }
+}
+
+/* cards */
+.all-drinks-container {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 15px;
+  transition: all 2s;
+}
+
+.card-body {
+  background-color:rgba(232, 255, 192, 0.369);
+}
+
+.card:hover {
+  box-shadow: 5px 6px 6px 2px #111111;
+  transform: scale(1.1);
+  transition: all 2s;
+}
+
+h5.card-title {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  padding: 5px;
+}
+
+h5.drink-title {
+  font-size: 20px;
+  color:rgb(35, 35, 35);
+  font-weight: 900;
+  font-family: 'vicky-christina';
+}
+
+h5.drink-title:hover {
+  text-decoration-line: underline;
+}
+
+.drink-category {
+  font-size: 12px;
+  text-align: center;
+  padding: 5px;
+}
+
+.drink-glass {
+  font-size: 9px;
+  text-align: center;
+  padding: 5px;
+}
+
+.drink-link {
+  text-decoration: none;
+}

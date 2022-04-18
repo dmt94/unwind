@@ -27,6 +27,10 @@ h1 {
   font-weight: 800;
 }
 
+.test-heading {
+  color: white;
+}
+
 .main-head > span {
   transition: all 2s;
 }
@@ -179,16 +183,17 @@ input[placeholder] {
 }
 
 .btn {
-  color: rgb(241, 255, 113);
-  margin-left: 15px;
+  color: rgb(37, 37, 37);
+  padding: 5px;
   border: none;
-  border-radius: 0px;
-  border: none;
+  border-radius: 2px;
+  background-color: rgb(255, 255, 112);
 }
 
 .btn:hover {
-  color: rgb(255, 237, 237);
-  border: none;
+  color: rgb(255, 255, 89);
+  background-color: rgba(125, 125, 125, 0.147);
+  /* outline: 1px solid rgba(255, 255, 255, 0.469); */
 }
 
 .btn:focus {
@@ -199,7 +204,8 @@ input[placeholder] {
 }
 
 .d-flex {
-  margin: 15px;
+  margin: 25px;
+  justify-content: center;
 }
 
 .form-control {
@@ -245,22 +251,12 @@ input[placeholder] {
   justify-content: space-between;
 }
 
-.sunflower-border {
-  width: 40px;
-}
-
-hr {
-  border-top: 4px solid rgba(255, 247, 0, 0);
-  /* opacity: 1; */
-  /* height: 10px; */
-  /* background-color: rgb(255, 238, 0); */
-  /* border: none; */
-  /* padding: 2px; */
-  width: 200px;
-}
-
 .name-of-drink {
   border-bottom: 2px solid rgb(221, 248, 141);
+}
+
+li.nav-item > a.nav-link.current-page {
+  color: yellow;
 }
 
 #id-ingredient-list > li {
