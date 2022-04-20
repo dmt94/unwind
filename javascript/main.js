@@ -1,3 +1,11 @@
+
+let searchDrink = document.getElementById('find-drink');
+
+window.onload = function() {
+  event.preventDefault();
+  searchDrink.style.visibility = 'hidden';
+}
+
 document.querySelector('.btn').addEventListener('click', getDrink);
 
 document.querySelector('.random-link').addEventListener('click', randomDrink);
@@ -15,11 +23,20 @@ function getDrink() {
   .then(res => res.json()) 
   .then(data => {
     console.log(data);
-    console.log('hello');
- 
+    // console.log(data.drinks.length);
+    
+    if (data.drinks === null) {
+      searchDrink.style.visibility = 'visible';
+      return false;
+    } 
+    if (data.drinks !== null) {
+      searchDrink.style.visibility = 'hidden';
+    }
     let instr = data.drinks[0].strInstructions;
+
+
     if (document.querySelector('.name-of-drink').innerText !== data.drinks[0].strDrink.toUpperCase()) {
-      let myNode = document.getElementById('id-ingredient-list');
+      let myNode = document.getElementById('id-all-drinks-container');
       while (myNode.firstChild) {
       myNode.removeChild(myNode.lastChild);
   }

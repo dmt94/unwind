@@ -1,42 +1,59 @@
+document.querySelector('.btn').addEventListener('click', getDrink);
 
+let searchDrink = document.getElementById('find-drink');
+let topDiv = document.querySelector('.ingr-descr')
 
 window.onload = function() {
   event.preventDefault();
-  let alphabet = [
-    'a', 'b', 'c', 'd', 'e',
-    'f', 'g', 'h', 'i', 'j',
-    'k', 'l', 'm', 'n', 'o',
-    'p', 'q', 'r', 's', 't',
-    'u', 'v', 'w', 'x', 'y',
-    'z',
-  ]
-
-  let topDiv = document.querySelector('.ingr-descr')
+  searchDrink.style.visibility = 'hidden';
   topDiv.style.display = 'none';
+}
 
-  //name, alcOrNot, Category, Glass
+function getDrink() {
+  event.preventDefault();
+  let drink = document.querySelector('input').value;
+  console.log('clicked');
 
-function makeCards(letter) {
-  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`)
+
+  if (drink.length < 3) {
+    searchDrink.style.visibility = 'visible';
+    return false;
+  }
+
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
   .then(res => res.json()) 
   .then(data => {
-    if (data.drinks !== null) {
-      // array of objects
-      console.log(data.drinks);
+    console.log(data);
     
+    if (data.drinks === null) {
+      searchDrink.style.visibility = 'visible';
+      return false;
+    } 
+    if (data.drinks !== null) {
+      searchDrink.style.visibility = 'hidden';
+    }
+
+    let myNode = document.getElementById('id-all-drinks-container');
+    while (myNode.firstChild) {
+    myNode.removeChild(myNode.lastChild);
+    }
+
+    makeCards(drink);
+
+    function makeCards(drink) {
       data.drinks.forEach(drink => {
-        if (drink['strAlcoholic'] === 'Non alcoholic') {
           let drinkIdCard = drink['idDrink'];
           let drinkName = drink['strDrink'];
           let drinkType = drink['strAlcoholic'];
           let drinkCategory = drink['strCategory'];
           let drinkGlass = drink['strGlass'];
           let drinkImg = drink['strDrinkThumb'];
-
+          console.log(drink);
           let createCard = document.createElement('div');
           createCard.classList.add("card");
           createCard.style.width = '18rem';
           createCard.setAttribute("id", drinkIdCard);
+          
 
           let createImage = document.createElement("img");
           createImage.src = drinkImg;
@@ -57,15 +74,25 @@ function makeCards(letter) {
 
           // drink link
           let createDrinkTitleLink = document.createElement('a');
+          
           // drink title, 
           // h5 element
+          // let createDrinkTitle = document.createElement('button');
           let createDrinkTitle = document.createElement('h5');
-          createDrinkTitle.classList.add('card-title');
-          createDrinkTitle.classList.add('drink-title');
+          createDrinkTitle.setAttribute('value', drinkName);
           titleId = drinkName.toLowerCase().replaceAll(' ','-');
           createDrinkTitle.setAttribute("id", titleId);
+          createDrinkTitle.classList.add('drink-title-button');
+          
+          
+          createDrinkTitle.classList.add('card-title');
+          createDrinkTitle.classList.add('drink-title');
           let createDrinkTitleContent = document.createTextNode(drinkName);
           createDrinkTitle.appendChild(createDrinkTitleContent);
+
+          //creating value of link
+          // VALUE AND ID FOR LINK
+          createDrinkTitleLink.value = drinkName;
 
           createDrinkTitleLink.classList.add('drink-link');
           createDrinkTitleLink.appendChild(createDrinkTitle);
@@ -107,19 +134,36 @@ function makeCards(letter) {
           let button = document.getElementById(titleId);
           //click "link"
           button.addEventListener('click', function handleClick() {
+            topDiv.style.display = 'flex';
             console.log('element clicked');
             console.log(drinkName);
-            topDiv.style.display = 'flex';
-            let drink = drinkName;
-            
+            let theDrink = drinkName;
 
-            fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
+            fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${theDrink}`)
             .then(res => res.json()) 
             .then(data => {
               console.log(data);
               console.log(data.drinks[0].strInstructions);
+              let keyPairNestedArray = Object.entries(data.drinks[0]);
+
+              let ingredientsArray = keyPairNestedArray.filter(arr => {
+                return arr[0].includes('strIngredient') && arr[1] !== null;
+              }).map(arr => arr[1]);
+              
+              let quantityArray = keyPairNestedArray.filter(arr => {
+                return arr[0].includes('strMeasure') && arr[1] !== null;
+              }).map(arr => arr[1]);
+              
+              let fullIngredientsArray = [];
+              
+              for (let i = 0; i < quantityArray.length; i++) {
+                fullIngredientsArray.push(quantityArray[i] + ingredientsArray[i]);
+              }
+
+              console.log(fullIngredientsArray);
 
               //remove all elements within cards
+              let card = document.getElementById(drinkIdCard);
               eachCard.style.display = 'none';
 
               //add title, image, instruction
@@ -128,7 +172,6 @@ function makeCards(letter) {
               let instr = data.drinks[0].strInstructions;
               let myNode = document.getElementById('id-ingredient-list');
               document.querySelector('.instructions').innerText = instr.split('.').join('.\n');
-              // document.querySelector('.instructions').innerText = instr;
 
 
               //add ingredient list
@@ -139,25 +182,17 @@ function makeCards(letter) {
               }).map(arr => arr[1]);
               
               let quantityArray2 = keyPairNestedArray2.filter(arr => {
-                return arr[0].includes('strMeasure') && arr[1] !== null;
-              }).map(arr => arr[1]);
+                return arr[0].includes('strMeasure') && arr[1] !== null && arr[1] !== '\n';
+              }).map(arr => '⟡' + ' ' + arr[1]);
               
               let fullIngredientsArray2 = [];
-              console.log(ingredientsArray2);
-              console.log(quantityArray2);
               
               for (let i = 0; i < quantityArray2.length; i++) {
-                if (quantityArray2[i] !== null && ingredientsArray2[i] !== null) {
-                  fullIngredientsArray2.push(quantityArray2[i] + ' ' + ingredientsArray2[i]);
-                }
+                fullIngredientsArray2.push(quantityArray2[i] + ' ' + ingredientsArray2[i]);
               }
 
-              for (let i = 0; i < ingredientsArray2.length; i++) {
-                if (ingredientsArray2[i] !== null && quantityArray2[i] === undefined) {
-                  fullIngredientsArray2.push(ingredientsArray2[i]);
-              }}
-
               let fullIngredients = fullIngredientsArray2.join('\n\n');
+              console.log(fullIngredients);
 
               document.querySelector('.list-of-ingredient').innerText = fullIngredients;
 
@@ -171,18 +206,13 @@ function makeCards(letter) {
             });
 
           }); // end of event listener
-        }
-       
-      })
-    }
-});
-}
+          
+      });
 
-alphabet.forEach(letter => {
-  makeCards(letter);
-});
-
-}//end of onload function
-
-
-
+    }//end of makeCards function
+    
+  })//end of .then(data =>)
+  .catch(err => {
+    console.log(`error ${err}`);
+  });
+}//end of getDrink

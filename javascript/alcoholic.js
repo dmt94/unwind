@@ -119,26 +119,8 @@ function makeCards(letter) {
             .then(data => {
               console.log(data);
               console.log(data.drinks[0].strInstructions);
-              let keyPairNestedArray = Object.entries(data.drinks[0]);
-
-              let ingredientsArray = keyPairNestedArray.filter(arr => {
-                return arr[0].includes('strIngredient') && arr[1] !== null;
-              }).map(arr => arr[1]);
-              
-              let quantityArray = keyPairNestedArray.filter(arr => {
-                return arr[0].includes('strMeasure') && arr[1] !== null;
-              }).map(arr => arr[1]);
-              
-              let fullIngredientsArray = [];
-              
-              for (let i = 0; i < quantityArray.length; i++) {
-                fullIngredientsArray.push(quantityArray[i] + ingredientsArray[i]);
-              }
-
-              console.log(fullIngredientsArray);
 
               //remove all elements within cards
-              let card = document.getElementById(drinkIdCard);
               eachCard.style.display = 'none';
 
               //add title, image, instruction
@@ -159,13 +141,24 @@ function makeCards(letter) {
               
               let quantityArray2 = keyPairNestedArray2.filter(arr => {
                 return arr[0].includes('strMeasure') && arr[1] !== null;
-              }).map(arr => '⟡' + ' ' + arr[1]);
+              }).map(arr => arr[1]);
               
               let fullIngredientsArray2 = [];
+              console.log(ingredientsArray2);
+              console.log(quantityArray2);
               
               for (let i = 0; i < quantityArray2.length; i++) {
-                fullIngredientsArray2.push(quantityArray2[i] + ' ' + ingredientsArray2[i]);
+                if (quantityArray2[i] !== null && ingredientsArray2[i] !== null) {
+                  fullIngredientsArray2.push(quantityArray2[i] + ' ' + ingredientsArray2[i]);
+                }
               }
+
+              for (let i = 0; i < ingredientsArray2.length; i++) {
+                if (ingredientsArray2[i] !== null && quantityArray2[i] === undefined) {
+                  fullIngredientsArray2.push(ingredientsArray2[i]);
+              }}
+
+              console.log(fullIngredientsArray2);
 
               let fullIngredients = fullIngredientsArray2.join('\n\n');
               console.log(fullIngredients);

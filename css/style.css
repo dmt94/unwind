@@ -203,7 +203,8 @@ input[placeholder] {
 }
 
 .btn:focus {
-  color: rgb(255, 255, 255);
+  color: rgb(163, 255, 142);
+  background-color: rgb(57, 57, 57);
   border: none;
   outline: none;
   background-color: none;
@@ -286,4 +287,13 @@ li.nav-item > a.nav-link.current-page {
   color: rgb(252, 255, 172);
   font-size: 15px;
   text-align: center;
+}
+
+#find-drink {
+  display: flex;
+  justify-content: center;
+}
+
+.check-search {
+  color: rgb(211, 255, 141);
 }

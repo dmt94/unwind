@@ -15,8 +15,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
-  <title>TESTING</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/search.css">
+  <title>Unwind</title>
 </head>
 
 <body>
@@ -37,10 +38,12 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link home current-page" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link home current-page" aria-current="page"
+              href="index2.html">Home</a>
           </li>
           <li class="nav-item all-drinks">
-            <a class="nav-link all-drinks-link" href="pages/all-drinks.html">All Drinks</a>
+            <a class="nav-link all-drinks-link" href="pages/all-drinks.html">All
+              Drinks</a>
           </li>
           <li class="nav-item random">
             <a class="nav-link random-link" id="" href="">Decide for Me</a>
@@ -68,79 +71,50 @@
   </nav>
   <!--search bar-->
   <form class="d-flex">
-    <input class="form-control me-2" type="search"
-      placeholder="Find Drink" aria-label="Search">
+    <input class="form-control me-2" type="search" placeholder="Find Drink"
+      aria-label="Search">
     <button class="btn" type="submit"><span>search</span></button>
   </form>
   <!-- end of search bar-->
-  <!--carousel-->
-  <div class="carousel-container">
-    <!--carouselExampleindicators , add automation option here-->
-    <div id="carouselExampleIndicators" class="carousel slide"
-      data-bs-ride="carousel" data-bs-interval="false">
-      <!--carousel-indicator-->
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="0" class="active" aria-current="true"
-          aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
-      <!--carousel-inner-->
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="images/zombie-drink.jpg"
-            class="first d-block w-100" alt="">
-        </div>
-      </div>
-      <!--carousel-control-prev, buttons-->
-      <button class="carousel-control-prev" type="button"
-        data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button"
-        data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
+  <div id="find-drink">
+    <span class="check-search">Search Not Found</span>
   </div>
-  <!--end carousel-->
+  <!--Ingredients and Instructions-->
   <div class="ingr-descr">
+    
     <div class="drink-box">
+      <img src="" alt="" class="drink-img">
       <hr />
       <h2 class="name-of-drink"></h2>
     </div>
     <div class="description">
       <div class="drink-box">
-        <h2>What you Need</h2>
+        <h2 id="what-you-need">What you Need</h2>
       </div>
-      <div class="list-box">
-        <ul class="list-of-ul" id="id-ingredient-list">
-          <li class="list-class">You deserve.</li>
-          <!-- <li class="first-ingredient">You deserve</li> -->
-        </ul>
+      <div class="list-box" id="list-box-id">
+        <span class="list-of-ingredient"></span>
       </div>
     </div>
     <div class="description">
       <div class="ingr-descr">
         <div class="drink-box">
-          <h2>what you have to do</h2>
+          <h2 id="what-todo">what you have to do</h2>
         </div>
       </div>
       <div class="instr-box">
         <p class="instructions">drinks for you</p>
       </div>
     </div>
-  
+    <!--end of Ingredients and Instructions-->
+  </div>
+  <div class="all-drinks-container" id="id-all-drinks-container">
+    <!--end of all-drinks-container-->
   </div>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
-  <script type="text/javascript" src="/javascript/all-drinks.js"></script>
+  <script type="text/javascript" src="/javascript/main2.js"></script>
 </body>
+
 </html>
