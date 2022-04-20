@@ -11,6 +11,9 @@ window.onload = function() {
     'z',
   ]
 
+  let topDiv = document.querySelector('.ingr-descr')
+  topDiv.style.display = 'none';
+
   //name, alcOrNot, Category, Glass
 
 function makeCards(letter) {
@@ -23,6 +26,7 @@ function makeCards(letter) {
     
       data.drinks.forEach(drink => {
         if (drink['strAlcoholic'] === 'Non alcoholic') {
+          let drinkIdCard = drink['idDrink'];
           let drinkName = drink['strDrink'];
           let drinkType = drink['strAlcoholic'];
           let drinkCategory = drink['strCategory'];
@@ -32,6 +36,7 @@ function makeCards(letter) {
           let createCard = document.createElement('div');
           createCard.classList.add("card");
           createCard.style.width = '18rem';
+          createCard.setAttribute("id", drinkIdCard);
 
           let createImage = document.createElement("img");
           createImage.src = drinkImg;
@@ -57,11 +62,12 @@ function makeCards(letter) {
           let createDrinkTitle = document.createElement('h5');
           createDrinkTitle.classList.add('card-title');
           createDrinkTitle.classList.add('drink-title');
+          titleId = drinkName.toLowerCase().replaceAll(' ','-');
+          createDrinkTitle.setAttribute("id", titleId);
           let createDrinkTitleContent = document.createTextNode(drinkName);
           createDrinkTitle.appendChild(createDrinkTitleContent);
 
           createDrinkTitleLink.classList.add('drink-link');
-          createDrinkTitleLink.href = '../index.html';
           createDrinkTitleLink.appendChild(createDrinkTitle);
 
           // drink category
@@ -97,6 +103,84 @@ function makeCards(letter) {
 
           let eachCard = document.getElementById("id-all-drinks-container");
           eachCard.appendChild(createCard);
+
+          let button = document.getElementById(titleId);
+          //click "link"
+          button.addEventListener('click', function handleClick() {
+            console.log('element clicked');
+            console.log(drinkName);
+            topDiv.style.display = 'flex';
+            let drink = drinkName;
+            
+
+            fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
+            .then(res => res.json()) 
+            .then(data => {
+              console.log(data);
+              console.log(data.drinks[0].strInstructions);
+              let keyPairNestedArray = Object.entries(data.drinks[0]);
+
+              let ingredientsArray = keyPairNestedArray.filter(arr => {
+                return arr[0].includes('strIngredient') && arr[1] !== null;
+              }).map(arr => arr[1]);
+              
+              let quantityArray = keyPairNestedArray.filter(arr => {
+                return arr[0].includes('strMeasure') && arr[1] !== null;
+              }).map(arr => arr[1]);
+              
+              let fullIngredientsArray = [];
+              
+              for (let i = 0; i < quantityArray.length; i++) {
+                fullIngredientsArray.push(quantityArray[i] + ingredientsArray[i]);
+              }
+
+              console.log(fullIngredientsArray);
+
+              //remove all elements within cards
+              let card = document.getElementById(drinkIdCard);
+              eachCard.style.display = 'none';
+
+              //add title, image, instruction
+              document.querySelector('.name-of-drink').innerText = data.drinks[0].strDrink;
+              document.querySelector('.drink-img').src = data.drinks[0].strDrinkThumb;
+              let instr = data.drinks[0].strInstructions;
+              let myNode = document.getElementById('id-ingredient-list');
+              document.querySelector('.instructions').innerText = instr.split('.').join('.\n');
+              // document.querySelector('.instructions').innerText = instr;
+
+
+              //add ingredient list
+              let keyPairNestedArray2 = Object.entries(data.drinks[0]);
+
+              let ingredientsArray2 = keyPairNestedArray2.filter(arr => {
+                return arr[0].includes('strIngredient') && arr[1] !== null;
+              }).map(arr => arr[1]);
+              
+              let quantityArray2 = keyPairNestedArray2.filter(arr => {
+                return arr[0].includes('strMeasure') && arr[1] !== null;
+              }).map(arr => '⟡' + ' ' + arr[1]);
+              
+              let fullIngredientsArray2 = [];
+              
+              for (let i = 0; i < quantityArray2.length; i++) {
+                fullIngredientsArray2.push(quantityArray2[i] + ' ' + ingredientsArray2[i]);
+              }
+
+              let fullIngredients = fullIngredientsArray2.join('\n\n');
+              console.log(fullIngredients);
+
+              document.querySelector('.list-of-ingredient').innerText = fullIngredients;
+
+              //back to normal cards
+              document.addEventListener('click', function handleClick() {
+                eachCard.style.display = 'flex';
+              });
+            })
+            .catch(err => {
+              console.log(`error ${err}`);
+            });
+
+          }); // end of event listener
         }
        
       })

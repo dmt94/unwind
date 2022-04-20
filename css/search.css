@@ -72,14 +72,16 @@ h1 {
 .card {
   margin: 15px;
   transition: all 2s;
+  background-color: rgb(37, 37, 37);
+  outline: 1px solid white;
 }
 
 .card-body {
-  background-color:rgba(232, 255, 192, 0.369);
+  background-color:rgb(232, 255, 192);
 }
 
 .card:hover {
-  box-shadow: 5px 6px 6px 2px #111111;
+  box-shadow: 5px 3px 3px 2px #000000d6;
   transform: scale(1.1);
   transition: all 2s;
 }
@@ -101,20 +103,33 @@ h5.drink-title {
 
 h5.drink-title:hover {
   text-decoration-line: underline;
+  cursor: pointer;
 }
 
 .drink-category {
   font-size: 12px;
   text-align: center;
   padding: 5px;
+  color: white;
 }
 
 .drink-glass {
   font-size: 9px;
   text-align: center;
   padding: 5px;
+  color: white;
 }
 
 .drink-link {
   text-decoration: none;
 }
+
+/* Ingredient List all-drinks*/
+.create-ingredients {
+  font-size: 20px;
+  color:rgb(255, 255, 255);
+  font-weight: 900;
+  font-family: 'vicky-christina';
+}
+
+/* */

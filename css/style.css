@@ -76,7 +76,7 @@ h2 {
 }
 
 .instr-box {
-  max-width: 30rem;
+  max-width: 35rem;
   padding: 20px;
   border: 1px solid rgb(255, 248, 248);
   background-color: rgba(233, 233, 233, 0.025);
@@ -173,6 +173,12 @@ input[placeholder] {
 .carousel-item > img:hover {
   opacity: 1;
   transform: scale(1.3);
+}
+
+/* img */
+.drink-img {
+  width: 20rem;
+  margin: 20px;
 }
 
 /* navbar */
@@ -274,4 +280,10 @@ li.nav-item > a.nav-link.current-page {
 #id-ingredient-list > li:hover {
   transform: scale(1.2);
   transition: all 2s;
+}
+
+.list-of-ingredient {
+  color: rgb(252, 255, 172);
+  font-size: 15px;
+  text-align: center;
 }
