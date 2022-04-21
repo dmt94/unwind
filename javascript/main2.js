@@ -144,26 +144,8 @@ function getDrink() {
             .then(data => {
               console.log(data);
               console.log(data.drinks[0].strInstructions);
-              let keyPairNestedArray = Object.entries(data.drinks[0]);
-
-              let ingredientsArray = keyPairNestedArray.filter(arr => {
-                return arr[0].includes('strIngredient') && arr[1] !== null;
-              }).map(arr => arr[1]);
-              
-              let quantityArray = keyPairNestedArray.filter(arr => {
-                return arr[0].includes('strMeasure') && arr[1] !== null;
-              }).map(arr => arr[1]);
-              
-              let fullIngredientsArray = [];
-              
-              for (let i = 0; i < quantityArray.length; i++) {
-                fullIngredientsArray.push(quantityArray[i] + ingredientsArray[i]);
-              }
-
-              console.log(fullIngredientsArray);
 
               //remove all elements within cards
-              let card = document.getElementById(drinkIdCard);
               eachCard.style.display = 'none';
 
               //add title, image, instruction
@@ -178,11 +160,11 @@ function getDrink() {
               let keyPairNestedArray2 = Object.entries(data.drinks[0]);
 
               let ingredientsArray2 = keyPairNestedArray2.filter(arr => {
-                return arr[0].includes('strIngredient') && arr[1] !== null;
+                return arr[0].includes('strIngredient') && arr[1] !== null && arr[1] !== "";
               }).map(arr => arr[1]);
               
               let quantityArray2 = keyPairNestedArray2.filter(arr => {
-                return arr[0].includes('strMeasure') && arr[1] !== null && arr[1] !== '\n';
+                return arr[0].includes('strMeasure') && arr[1] !== null && arr[1] !== '\n' && arr[1] !== "";
               }).map(arr => '⟡' + ' ' + arr[1]);
               
               let fullIngredientsArray2 = [];

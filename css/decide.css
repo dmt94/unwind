@@ -1,0 +1,346 @@
+
+@font-face {
+  font-family: 'vicky_christinaregular';
+  src: url('../webfontkit-20220311-111854/vickychristina-webfont.woff2') format('woff2'),
+       url('../webfontkit-20220311-111854/vickychristina-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+body {
+  background-color: rgb(40, 40, 40);
+}
+
+h1 {
+  font-size: 90px;
+  font-family: 'vicky_christinaregular';
+}
+
+/* Navbar */
+.navbar {
+  background-color: rgb(230, 255, 140);
+}
+
+.navbar-expand-lg {
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-toggler {
+  border-color: light-green;
+  background-color: rgb(170, 184, 110);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(0, 0, 0, 0.858);
+  font-family: Inter;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-align: center;
+  font-weight: bolder;
+  border-bottom: 5px solid rgba(41, 41, 41, 0);
+  border: 1px solid rgb(56, 56, 56);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: rgb(110, 136, 86);
+  border: 1px solid rgba(56, 56, 56, 0);
+  border-bottom: 5px solid rgb(41, 41, 41);
+  transition: all 1s;
+}
+
+/* Heading */
+.main-head {
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: rgb(230, 255, 140);
+  color: rgb(41, 41, 41);
+  font-family: 'vicky-christina';
+  transition: all 2s;
+}
+
+.main-title-span {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-align: center;
+  font-weight: bolder;
+  font-family: Inter;
+}
+
+.triangle {
+  display: flex;
+  justify-content: center;
+}
+
+/* card */
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.card-container {
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.card {
+  width: 18rem;
+  height: 25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 140px 10px rgba(0,0,0,.5);
+  border: 1px solid rgb(247, 255, 232);
+  overflow: hidden; /* Try removing this to see how the sheen works! */
+  --sheenX: 0; /* Set these with JavaScript */
+  --sheenY: 0;
+}
+
+.card-img-overlay {
+  padding-right: 0;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+}
+
+.animate__slower {
+  --animate-duration: 4s;
+}
+
+/* card content */
+
+.preference {
+  color: rgba(234, 255, 77, 0.869);
+  font-family: Inter;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-align: center;
+}
+
+.alcoholic-choice, .na-choice, .no-pref {
+  margin: 35px;
+  text-align: center;
+  font-size: 28px;
+  letter-spacing: 2px;
+  font-family: 'vicky_christinaregular';
+  border-bottom:rgba(230, 255, 140, 0) 3px solid;
+}
+
+
+.alcoholic-choice:hover,
+.na-choice:hover,
+.no-pref:hover {
+  border-bottom:rgb(244, 255, 83) 3px solid;
+  cursor: pointer;
+  color:rgba(240, 248, 255, 0.796);
+}
+
+a:hover {
+  color:rgb(240, 248, 255);
+}
+
+.bottom-div {
+  background-color:rgba(230, 255, 140, 0.948);
+  display: flex;
+  justify-content: center;
+  border-radius: 3px;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.bottom-card-content {
+  font-size: 15px;
+  color:rgb(40, 40, 40);
+  margin: 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-align: center;
+  font-weight: bolder;
+  font-family: Inter;
+}
+
+/* Card Content Text */
+
+#category-container, #drink-container, #glass-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.card-content-title {
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 15px;
+  color:rgb(223, 255, 40);
+  font-family: Inter;
+  font-weight: bolder;
+}
+
+.random-content-title {
+  font-family: 'vicky_christinaregular';
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.random-drink-title {
+  font-size: 28px;
+  text-align: center;
+}
+
+/* Another Drink Button */
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.btn-another-drink {
+  padding: 8px;
+  margin: 10px;
+  border-radius: 5px;
+  color:rgb(255, 254, 243);
+  background-color: rgba(55, 55, 55, 0.916);
+  border:rgb(242, 255, 230) solid 1px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bolder;
+  box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+}
+
+.btn-another-drink:hover {
+  padding: 8px;
+  border-radius: 5px;
+  color:rgb(255, 250, 238);
+  background-color: rgba(237, 255, 198, 0.194);
+  border:rgb(255, 241, 227) solid 1px;
+  box-shadow: rgba(188, 188, 255, 0.393) 2px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+/* Drink Recipe Container */
+
+.instructions-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.h-divider{
+  margin-top:5px;
+  margin-bottom:5px;
+  height:5px;
+  width:10%;
+  border-top:5px solid rgb(189, 255, 91);
+  opacity: 1;
+ }
+
+ .instr-content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(61, 61, 61, 0.159);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  width: 70%;
+ }
+
+ .ingredients-title, .instructions-title {
+   color: rgb(248, 255, 218);
+   font-size: 25px;
+   letter-spacing: 2px;
+   margin: 20px;
+   padding: 10px;
+   border-bottom: 3px solid rgb(189, 255, 91);
+   text-align: center;
+ }
+ 
+ #id-instructions-content, #id-ingredients-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ }
+
+ p {
+   color: white;
+   margin: 20px;
+   text-align: center;
+ }
+
+ .ingredient-content {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: Inter;
+  line-height: 2.6;
+ }
+
+ .instruction-content {
+  font-family: Inter;
+  letter-spacing: 2px;
+  font-size: 14px;
+  margin: 25px;
+  text-transform: uppercase;
+  color: rgb(255, 255, 170);
+  line-height: 2.6;
+ }
+
+ /* bottom div */
+
+ .bottom {
+   display: flex;
+   justify-content: center;
+   margin: 50px;
+ }
+
+ .fa-martini-glass-citrus {
+  /* color: white; */
+  /* background-color: aliceblue; */
+  border-radius: 50%;
+  color:rgb(255, 250, 238);
+  background-color: rgba(137, 146, 129, 0.113);
+  border:rgba(247, 255, 173, 0) solid 2px;
+  filter: drop-shadow(5px 5px 1px rgba(21, 21, 21, 0.902));
+}
+
+.diamonds {
+  color: white;
+}
+
+/* footer div */
