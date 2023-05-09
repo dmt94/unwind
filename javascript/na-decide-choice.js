@@ -36,14 +36,16 @@ window.onload = function() {
           }
 
         //grab random drink
-        let nalcoholicDrinks = [];
+        // let nalcoholicDrinks = [];
 
-        data.drinks.forEach(drink => {
-          if (drink['strAlcoholic'] === 'Non alcoholic') {
-            nalcoholicDrinks.push(drink);
-          }
-        })
+        let nalcoholicDrinks = data.drinks.filter(drink => drink['strAlcoholic'] === 'Non alcoholic');
 
+        console.log(nalcoholicDrinks);
+
+        if (nalcoholicDrinks.length === 0) {
+          return grabRandomDrink(grabRandomLetter());
+        }
+ 
         let randomDrinkInt = Math.floor(Math.random() * nalcoholicDrinks.length);
         let randomDrink = nalcoholicDrinks[randomDrinkInt];
 
